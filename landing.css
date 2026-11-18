@@ -1,0 +1,206 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+:root {
+    --page-bg-1: #667eea;
+    --page-bg-2: #764ba2;
+    --hero-bg: rgba(255, 255, 255, 0.12);
+    --card-shadow: rgba(0, 0, 0, 0.15);
+    --white: #ffffff;
+    --dark-panel: #2a3448;
+    --dark-text: #d1d5db;
+    --muted: #666666;
+    --text: #111827;
+}
+
+body {
+    min-height: 100vh;
+    background: linear-gradient(135deg, var(--page-bg-1), var(--page-bg-2));
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 24px;
+    transition: 0.4s ease;
+}
+
+.container {
+    width: min(1200px, 100%);
+}
+
+.theme-btn {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: 55px;
+    height: 55px;
+    border: none;
+    border-radius: 50%;
+    background: var(--white);
+    color: var(--page-bg-1);
+    font-size: 22px;
+    cursor: pointer;
+    box-shadow: 0 5px 15px var(--card-shadow);
+    z-index: 999;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.theme-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.2);
+}
+
+.hero {
+    text-align: center;
+    background: var(--hero-bg);
+    backdrop-filter: blur(10px);
+    border-radius: 25px;
+    padding: clamp(30px, 5vw, 50px);
+    color: var(--white);
+    margin-bottom: 40px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+.hero img {
+    width: min(120px, 28vw);
+    margin-bottom: 20px;
+    border-radius: 18px;
+}
+
+.hero h1 {
+    font-size: clamp(2.2rem, 5vw, 4rem);
+    margin-bottom: 20px;
+    line-height: 1.1;
+}
+
+.hero p {
+    max-width: 850px;
+    margin: auto;
+    line-height: 1.8;
+    font-size: clamp(1rem, 2vw, 1.125rem);
+    opacity: 0.95;
+}
+
+.dashboard-options {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 30px;
+}
+
+.dashboard-card {
+    display: block;
+    background: var(--white);
+    border-radius: 25px;
+    padding: clamp(24px, 4vw, 40px);
+    text-decoration: none;
+    color: var(--text);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    position: relative;
+    overflow: hidden;
+    min-height: 210px;
+}
+
+.dashboard-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 6px;
+    background: linear-gradient(90deg, #667eea, #764ba2);
+}
+
+.dashboard-card:hover {
+    transform: translateY(-8px) scale(1.01);
+    box-shadow: 0 16px 30px rgba(0, 0, 0, 0.18);
+}
+
+.dashboard-card h2 {
+    color: #667eea;
+    font-size: clamp(1.5rem, 3vw, 2.1rem);
+    margin-bottom: 15px;
+    line-height: 1.2;
+}
+
+.dashboard-card p {
+    color: var(--muted);
+    line-height: 1.8;
+    font-size: 1rem;
+}
+
+.dark-mode {
+    background: linear-gradient(135deg, #1e293b, #25344f, #314866);
+}
+
+.dark-mode .hero {
+    background: rgba(34, 46, 68, 0.9);
+    color: var(--white);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.dark-mode .dashboard-card {
+    background: var(--dark-panel);
+    color: var(--white);
+}
+
+.dark-mode .dashboard-card h2 {
+    color: #9cb5ff;
+}
+
+.dark-mode .dashboard-card p {
+    color: var(--dark-text);
+}
+
+.dark-mode .theme-btn {
+    background: var(--dark-panel);
+    color: var(--white);
+}
+
+@media (max-width: 900px) {
+    body {
+        padding: 20px 16px;
+    }
+
+    .hero {
+        padding: 30px 20px;
+        margin-bottom: 28px;
+    }
+
+    .dashboard-options {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .dashboard-card {
+        min-height: 180px;
+    }
+}
+
+@media (max-width: 600px) {
+    .theme-btn {
+        width: 50px;
+        height: 50px;
+        top: 15px;
+        right: 15px;
+    }
+
+    .hero h1 {
+        font-size: clamp(1.9rem, 8vw, 2.7rem);
+    }
+
+    .hero p {
+        font-size: 0.95rem;
+    }
+
+    .dashboard-card {
+        padding: 22px 18px;
+    }
+
+    .dashboard-card h2 {
+        font-size: 1.5rem;
+    }
+}

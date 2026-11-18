@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>SouthAsianPulse</title>
+
+    <link rel="stylesheet" href="landing.css?v=3">
+</head>
+
+<body>
+
+    <button id="themeBtn"
+            class="theme-btn">
+        🌙
+    </button>
+
+    <div class="container">
+
+        <div class="hero">
+
+            <img src="Assets/South_Asian_University.jpg"
+                 alt="SAU Logo">
+
+            <h1>SouthAsianPulse</h1>
+
+            <p>
+                SouthAsianPulse is a centralized student portal
+                designed to provide academic resources,
+                placement opportunities, quizzes, university
+                updates, departmental announcements,
+                hackathons and events through a unified platform.
+            </p>
+
+        </div>
+
+        <div class="dashboard-options">
+
+            <a href="pages/university-dashboard.html"
+               class="dashboard-card">
+
+                <h2>🏛 University Dashboard</h2>
+
+                <p>
+                    Access university notices,
+                    campus announcements,
+                    scholarships, events and
+                    institution-wide opportunities.
+                </p>
+
+            </a>
+
+            <a href="pages/department-dashboard.html"
+               class="dashboard-card">
+
+                <h2>🏢 Department Dashboard</h2>
+
+                <p>
+                    Access quizzes, placements,
+                    resources, hackathons and
+                    department-specific information.
+                </p>
+
+            </a>
+
+        </div>
+
+    </div>
+
+    <script>
+
+        const btn =
+        document.getElementById("themeBtn");
+
+        btn.addEventListener("click", () => {
+
+            document.body.classList.toggle(
+                "dark-mode"
+            );
+
+        });
+
+    </script>
+
+</body>
+
+</html>
